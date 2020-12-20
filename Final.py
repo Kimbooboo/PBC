@@ -9,11 +9,6 @@ class Nutrition(tk.Frame):
         tk.Frame.__init__(self)
         self.grid()
         self.createWidgets()
-        # self.geometry("300*150")
-    
-
-    
-        # return self.record_gender
 
     def createWidgets(self):
         f1 = tkFont.Font(size=14, family = "Courier New")
@@ -37,7 +32,6 @@ class Nutrition(tk.Frame):
         self.genderF.grid(row=1, column=2)
 
         # 問身高
-
         self.heightAsk = tk.Label(self, text= "請問您的身高？", height = 1, width = 20, font=f1)
         self.heightAsk.grid(row=2, column=0)
         self.heightReply = tk.Entry(self, width = 8)
@@ -77,7 +71,7 @@ class Nutrition(tk.Frame):
         activity = self.activityReply.get()
         gender = self.record_gender
 
-            # 計算基礎代謝率
+         # 計算基礎代謝率
         if gender == "男":
             REE = 10 * weight + 6.25 * height - 5 * age + 5
         else:
@@ -99,46 +93,6 @@ class Nutrition(tk.Frame):
     def record_gender(self):
         self.record_gender = self.var.get()
 
-
-            
-
-
-# 重寫radio button 
-
-
-
-
-
-
-
-
-
-
-
-
-        
-
-
-
-
-
-
-'''
-    def createWidgets(self):
-        var = tk.StringVar()
-        self.label = tk.Label(self, text="請問您的性別？", bg="yellow", width =15)
-        self.label.pack()
-
-        def print_selection():
-            self.label.config(text="請問您的性別？"+ var.get())
-        
-        self.gender = tk.Radiobutton(self, text = "男", variable=var, value="男", command = print_selection)
-        self.gender.pack()
-        self.gender1 = tk.Radiobutton(self, text = "女", variable = var, value="女", command=print_selection)
-        self.gender1.pack()
-    
-
-'''
 nutri = Nutrition()
 nutri.master.title("My Nutrition Calculator")
 nutri.mainloop()
